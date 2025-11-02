@@ -26,11 +26,11 @@ public class User implements Serializable{
 		
 	}
 
-	public User(long id, String name, String email, String phone, String password) {
+	public User(Long id, String name, String email, String phone, String password) {
 		super();
 		this.id = id;
 		this.name = name;
-		Email = email;
+		this.Email = email;
 		this.phone = phone;
 		this.password = password;
 	}
