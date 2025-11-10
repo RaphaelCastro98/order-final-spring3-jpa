@@ -15,10 +15,10 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name =" tb_user")
-public class User implements Serializable{
+@Table(name = " tb_user")
+public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -26,13 +26,13 @@ public class User implements Serializable{
 	private String Email;
 	private String phone;
 	private String password;
-	
+
 	@JsonIgnore
 	@OneToMany(mappedBy = "client")
-	List <Order> orders = new ArrayList<>();
-	
+	List<Order> orders = new ArrayList<>();
+
 	public User() {
-		
+
 	}
 
 	public User(Long id, String name, String email, String phone, String password) {
@@ -72,7 +72,6 @@ public class User implements Serializable{
 		return phone;
 	}
 
-	
 	public List<Order> getOrders() {
 		return orders;
 	}
@@ -105,6 +104,5 @@ public class User implements Serializable{
 		User other = (User) obj;
 		return id == other.id;
 	}
-	
-	
+
 }
