@@ -37,7 +37,7 @@ public class Order implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "cliente_id")
 	private User client;
-
+	
 	@OneToMany(mappedBy = "id.order")
 	private Set<OrderItem> items = new HashSet<>();
 
@@ -101,6 +101,14 @@ public class Order implements Serializable {
 
 	public Set<OrderItem> getItems() {
 		return items;
+	}
+	
+	public Double getTotal() {
+		Double sum=0.0;
+		for (OrderItem x :items) {
+			sum += x.getSubTotal();
+		}
+		return sum;
 	}
 
 	@Override
